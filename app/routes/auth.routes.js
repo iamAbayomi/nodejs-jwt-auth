@@ -1,4 +1,4 @@
-const { verfiySignUp } = require("../middleware");
+const { verifySignUp } = require("../middleware");
 const controller = require("../controllers/auth.controller");
 
 module.exports = function(app){
@@ -13,8 +13,8 @@ module.exports = function(app){
     app.post(
         "/api/auth/signup",
         [
-            verfiySignUp.checkDuplicateUsernameOrEmail,
-            verfiySignUp.checkRolesExisted
+            verifySignUp.checkDuplicateUsernameOrEmail,
+            verifySignUp.checkRolesExisted
         ],
         controller.signup
     );
